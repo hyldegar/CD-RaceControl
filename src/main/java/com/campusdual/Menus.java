@@ -178,20 +178,16 @@ public class Menus {
             switch (opcion) {
                 case 1:
                     char selection =Input.character("Desea Personalizar la carrera? (y/n:other)");
-                    System.out.println(selection);
                     if (selection == 'Y' || selection == 'y'){
-                        System.out.println("me voy por el if");
                         String raceStName = Input.string("Introduzca el nombre de la carrera: ");
                         int duration = Input.integer("Introduzca la duración en horas: ");
                         standardRaces.add(new StandardRace(raceStName, duration));
                     }else {
-                        System.out.println("me voy por el else");
                         standardRaces.add(new StandardRace());
                     }
                     break;
                 case 2:
                     char select =Input.character("Desea Personalizar la carrera? (y/n:other)");
-                    eliminationRaces.add(new EliminationRace());
                     if (select == 'Y' || select == 'y') {
                         String raceElName = Input.string("Introduzca el nombre de la carrera: ");
                         int warmMinutes = Input.integer("Introduzca la duración en minutos del warmup: ");
@@ -203,9 +199,11 @@ public class Menus {
                     break;
                 case 3:
                     goback = true;
+                    //Todo Dar baja de las carreras standar
                     return;
                 case 4:
                     goback = true;
+                    //Todo Dar baja de las carreras de eliminación
                     return;
                 case 5:
                     goback = true;
@@ -238,12 +236,11 @@ public class Menus {
                     String nameTournamentP = Input.string("Introduzca el nombre del Torneo");
                     int numberOfRaces = Input.integer("Cuantas carreras quiere añadir al Torneo?");
                     tournaments.add(Tournament.createPersonalizedTournament(nameTournamentP, standardRaces, eliminationRaces, numberOfRaces));
-                    // @todo elegir cantidad de carreras de un tipo u otro,
-                    // @todo incluso podemos personalizar con un listado y elegir cuando meterlas(mucho trabajo queda por este lado)
-
+                    // Todo elegir cantidad de carreras de un tipo u otro,
+                    // Todo incluso podemos personalizar con un listado y elegir cuando meterlas(mucho trabajo queda por este lado)
                     break;
                 case 3:
-
+                    //Todo Dar de baja los torneos
                     goback = true;
                     return;
                 case 4:

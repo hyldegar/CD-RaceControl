@@ -60,12 +60,23 @@ public class Car implements Comparable<Car> {
         return distance;
     }
 
+    /*@Override
+    public String toString() {
+        return "Car{" +
+                "brand='" + brand + '\'' +
+                ", model='" + model + '\'' +
+                ", garageName='" + garageName + '\'' +
+                '}';
+    }*/
+
     @Override
     public String toString() {
         return "Car{" +
                 "brand='" + brand + '\'' +
                 ", model='" + model + '\'' +
                 ", garageName='" + garageName + '\'' +
+                ", speedometer=" + speedometer +
+                ", distance=" + distance +
                 '}';
     }
 
@@ -122,5 +133,6 @@ public class Car implements Comparable<Car> {
             return 0;
         }
     }
+
 
 }

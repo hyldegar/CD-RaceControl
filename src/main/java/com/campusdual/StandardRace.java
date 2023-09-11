@@ -50,27 +50,31 @@ public class StandardRace extends AbstractRace{
     }*/
     @Override
     public void startRace() {
+        List<Car> participatingCars = new ArrayList<>();
         if (getParticipatingGarages().size() == 1) {
             setParticipatingCars(getParticipatingGarages().get(0).getCars());
+            System.out.println("fui por el if");
+            participatingCars= this.getParticipatingCars();
         } else {
-            List<Car> participatingCars = new ArrayList<>();
+
 
             for (Garage garage : getParticipatingGarages()) {
                 Random random = new Random();
                 participatingCars.add(garage.getCars().get(random.nextInt(garage.getCars().size())));
             }
 
-            for (int i = 0; i < this.durationHours * 60; i++) {
-                for (Car car : participatingCars) {
-                    car.aleatorizing();
-                }
 
-                participatingCars.sort(Collections.reverseOrder());
-
-
-                List<Car> podium = participatingCars.subList(0, Math.min(participatingCars.size(), 3));
-                setPodium(podium);
+        }
+        for (int i = 0; i < this.durationHours * 60; i++) {
+            for (Car car : participatingCars) {
+                car.aleatorizing();
             }
+
+            participatingCars.sort(Collections.reverseOrder());
+
+
+            List<Car> podium = participatingCars.subList(0, Math.min(participatingCars.size(), 3));
+            setPodium(podium);
         }
     }
 
@@ -99,6 +103,11 @@ public class StandardRace extends AbstractRace{
     }
 
 
+    public static void main(String[] args) {
 
+
+
+
+    }
 
 }

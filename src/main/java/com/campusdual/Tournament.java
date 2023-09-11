@@ -107,19 +107,13 @@ public class Tournament {
 
         List<StandardRace> selectedRaces = new ArrayList<>();
         Random random = new Random();
-
         if (number > allStandardRaces.size()) {
             number = allStandardRaces.size();
         }
-
-
         while (selectedRaces.size() < number) {
-
             int randomIndex = random.nextInt(allStandardRaces.size());
             StandardRace selectedRace = allStandardRaces.get(randomIndex);
-
             selectedRaces.add(selectedRace);
-
             allStandardRaces.remove(randomIndex);
         }
 
@@ -130,18 +124,13 @@ public class Tournament {
 
         List<EliminationRace> selectedRaces = new ArrayList<>();
         Random random = new Random();
-
         if (number > allEliminationRaces.size()) {
             number = allEliminationRaces.size();
         }
-
         while (selectedRaces.size() < number) {
-
             int randomIndex = random.nextInt(allEliminationRaces.size());
             EliminationRace selectedRace = allEliminationRaces.get(randomIndex);
-
             selectedRaces.add(selectedRace);
-
             allEliminationRaces.remove(randomIndex);
         }
 
