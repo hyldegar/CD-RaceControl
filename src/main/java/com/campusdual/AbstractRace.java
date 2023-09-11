@@ -34,7 +34,7 @@ public abstract class AbstractRace {
 
 
     public abstract void startRace();
-    public abstract void calculatePodium();
+    //public abstract void calculatePodium();
 
     // Getters y setters
 

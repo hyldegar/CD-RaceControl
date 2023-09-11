@@ -347,8 +347,6 @@ public class Menus {
                 Tournament tournament = Tournament.importTournament((JSONObject) tournamentObj);
                 tournaments.add(tournament);
             }
-
-
         } else {
             System.out.println("No se pudo cargar el estado desde el archivo JSON.");
         }
