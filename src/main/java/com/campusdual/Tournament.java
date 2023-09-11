@@ -50,11 +50,6 @@ public class Tournament {
 
     }
 
-    public static Tournament importTournament(JSONObject obj) {
-        String name = (String) obj.get(Tournament.NAME);
-        return new Tournament(name);
-    }
-
     public String getName() {
         return name;
     }
@@ -137,9 +132,16 @@ public class Tournament {
         return selectedRaces;
     }
 
+
+    //Data Management
     public JSONObject exportTournament() {
         JSONObject json = new JSONObject();
         json.put(Tournament.NAME, this.getName());
         return json;
+    }
+
+    public static Tournament importTournament(JSONObject obj) {
+        String name = (String) obj.get(Tournament.NAME);
+        return new Tournament(name);
     }
 }

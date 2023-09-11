@@ -21,56 +21,10 @@ public class Menus {
     private static JSONArray tournamentsJSON = new JSONArray();
 
     private static List<Car> cars = new ArrayList<>();
-    private static List<Garage> garages= new ArrayList<>();
-    private static List<StandardRace> standardRaces= new ArrayList<>();
-    private static List<EliminationRace> eliminationRaces= new ArrayList<>();
-    private static  List<Tournament> tournaments= new ArrayList<>();
-
-
-
-    public void ShowMainMenu() {
-
-        loadState();
-        rechargeCarsInGarages();
-        boolean goback = false;
-        while (!goback) {
-            System.out.println("\nMenú de Gestión Race Control:");
-            System.out.println("1. Gestionar Coches y Escuderias");
-            System.out.println("2. Gestionar Carreras");
-            System.out.println("3. Gestionar Torneos");
-            System.out.println("4. Simulacion");
-            System.out.println("5. Listados");
-            System.out.println("6. Guardar y salir");
-            System.out.print("Seleccione una opción: ");
-
-            int opcion = Input.integer();
-
-            switch (opcion) {
-                case 1:
-                    carAndGarageManagMenu();
-                    break;
-                case 2:
-                    raceManagementMenu();
-                    break;
-                case 3:
-                    raceManagementMenu();
-                    break;
-                case 4:
-                    tournamentManageMenu();
-                    break;
-                case 5:
-                    carsList();
-                    break;
-                case 6:
-                    saveState();
-                    System.out.println("Saliendo del programa.");
-                    System.exit(0);
-                default:
-                    System.out.println("Opción no válida. Por favor, seleccione una opción válida.");
-                    break;
-            }
-        }
-    }
+    private static List<Garage> garages = new ArrayList<>();
+    private static List<StandardRace> standardRaces = new ArrayList<>();
+    private static List<EliminationRace> eliminationRaces = new ArrayList<>();
+    private static List<Tournament> tournaments = new ArrayList<>();
 
     public static void carAndGarageManagMenu() {
         boolean goback = false;
@@ -107,7 +61,7 @@ public class Menus {
                                 selectedGarage.addCar(selectedCar);
                                 selectedCar.setGarageName(selectedGarage.getName());
                                 break;
-                            }else{
+                            } else {
                                 break;
                             }
                         }
@@ -141,14 +95,14 @@ public class Menus {
 
                 case 5:
                     List<Garage> selectedGaragesToRemove = Utils.showAndSelectFromList(garages, true);
-                    if(!selectedGaragesToRemove.isEmpty()) {
+                    if (!selectedGaragesToRemove.isEmpty()) {
                         Garage selectedGarageToRemove = selectedGaragesToRemove.get(0);
                         for (Car car : selectedGarageToRemove.getCars()) {
                             car.setGarageName("");
                         }
                         garages.remove(selectedGarageToRemove);
                         System.out.println("Escuderia Eliminada");
-                    }else {
+                    } else {
                         System.out.println("No se seleccionó ninguna escudería para dar de baja.");
                     }
                     break;
@@ -177,23 +131,23 @@ public class Menus {
 
             switch (opcion) {
                 case 1:
-                    char selection =Input.character("Desea Personalizar la carrera? (y/n:other)");
-                    if (selection == 'Y' || selection == 'y'){
+                    char selection = Input.character("Desea Personalizar la carrera? (y/n:other)");
+                    if (selection == 'Y' || selection == 'y') {
                         String raceStName = Input.string("Introduzca el nombre de la carrera: ");
                         int duration = Input.integer("Introduzca la duración en horas: ");
                         standardRaces.add(new StandardRace(raceStName, duration));
-                    }else {
+                    } else {
                         standardRaces.add(new StandardRace());
                     }
                     break;
                 case 2:
-                    char select =Input.character("Desea Personalizar la carrera? (y/n:other)");
+                    char select = Input.character("Desea Personalizar la carrera? (y/n:other)");
                     if (select == 'Y' || select == 'y') {
                         String raceElName = Input.string("Introduzca el nombre de la carrera: ");
                         int warmMinutes = Input.integer("Introduzca la duración en minutos del warmup: ");
                         int eliminationMinutes = Input.integer("Introduzaca el tiempo de eliminación, en minutos: ");
                         eliminationRaces.add(new EliminationRace(raceElName, warmMinutes, eliminationMinutes));
-                    }else{
+                    } else {
                         eliminationRaces.add(new EliminationRace());
                     }
                     break;
@@ -252,6 +206,57 @@ public class Menus {
             }
         }
     }
+    public static void simulation() {
+        boolean goback = false;
+        while (!goback) {
+            System.out.println("\nMené de Simulacion de Carreras y Torneos:");
+            System.out.println("1. Carrera Estándar");
+            System.out.println("2. Carrera Eliminación");
+            System.out.println("3. Torneo");
+            System.out.println("4. Volver al Menú Principal");
+            System.out.print("Seleccione una opción: ");
+
+            int opcion = Input.integer();
+
+            switch (opcion) {
+                case 1:
+                    List<StandardRace> standar = Utils.showAndSelectFromList(standardRaces,true);
+                    List<Garage> participatingGarages = Utils.showAndSelectFromList(garages,true,true);
+                    standar.get(0).setParticipatingGarages(participatingGarages);
+                    standar.get(0).startRace();
+                    System.out.println("la carrera ha finalizado correctamente;");
+                    List<Car> podium =  standar.get(0).getPodium();
+                    for(Car car: podium){
+                        System.out.println(car.toString());
+                    }
+
+                    break;
+                case 2:
+                    List<EliminationRace> elim = Utils.showAndSelectFromList(eliminationRaces,true);
+                    List<Garage> participatingGarages = Utils.showAndSelectFromList(garages,true,true);
+                    standar.get(0).setParticipatingGarages(participatingGarages);
+                    standar.get(0).startRace();
+                    System.out.println("la carrera ha finalizado correctamente;");
+                    List<Car> podium =  standar.get(0).getPodium();
+                    for(Car car: podium){
+                        System.out.println(car.toString());
+                    }
+                    break;
+                case 3:
+                    //Todo Dar de baja los torneos
+                    goback = true;
+                    return;
+                case 4:
+                    goback = true;
+                    return;
+                default:
+                    System.out.println("Opción no válida. Por favor, seleccione una opción válida.");
+                    break;
+            }
+        }
+    }
+
+    //Data Management
     public static void exportJSONToFile(JSONArray obj) {
         try (FileWriter w = new FileWriter("RaceControl.json")) {
             w.write(obj.toJSONString());
@@ -269,7 +274,7 @@ public class Menus {
         }
     }
 
-    public static void saveState(){
+    public static void saveState() {
         carsJSON.clear();
         garagesJSON.clear();
         standardRJSON.clear();
@@ -299,8 +304,7 @@ public class Menus {
         exportJSONToFile(raceControl);
     }
 
-
-    public static void loadState(){
+    public static void loadState() {
 
         JSONArray loadedData = importFromJSONFile("RaceControl.json");
 
@@ -349,18 +353,62 @@ public class Menus {
         }
     }
 
-    public static void carsList(){
-        Utils.showFromList(cars,true);
+    public static void carsList() {
+        Utils.showFromList(cars, true);
     }
 
-    public static void rechargeCarsInGarages(){
-        for (Car car: cars){
-            for (Garage garage: garages){
-                if(car.getGarageName().equals(garage.getName())){
+    public static void rechargeCarsInGarages() {
+        for (Car car : cars) {
+            for (Garage garage : garages) {
+                if (car.getGarageName().equals(garage.getName())) {
                     garage.addCar(car);
                 }
             }
 
+        }
+    }
+
+    public void ShowMainMenu() {
+
+        loadState();
+        rechargeCarsInGarages();
+        boolean goback = false;
+        while (!goback) {
+            System.out.println("\nMenú de Gestión Race Control:");
+            System.out.println("1. Gestionar Coches y Escuderias");
+            System.out.println("2. Gestionar Carreras");
+            System.out.println("3. Gestionar Torneos");
+            System.out.println("4. Simulacion");
+            System.out.println("5. Listados");
+            System.out.println("6. Guardar y salir");
+            System.out.print("Seleccione una opción: ");
+
+            int opcion = Input.integer();
+
+            switch (opcion) {
+                case 1:
+                    carAndGarageManagMenu();
+                    break;
+                case 2:
+                    raceManagementMenu();
+                    break;
+                case 3:
+                    tournamentManageMenu();
+                    break;
+                case 4:
+                    simulation();
+                    break;
+                case 5:
+                    carsList();
+                    break;
+                case 6:
+                    saveState();
+                    System.out.println("Saliendo del programa.");
+                    System.exit(0);
+                default:
+                    System.out.println("Opción no válida. Por favor, seleccione una opción válida.");
+                    break;
+            }
         }
     }
 

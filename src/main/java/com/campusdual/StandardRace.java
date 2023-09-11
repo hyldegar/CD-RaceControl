@@ -90,6 +90,7 @@ public class StandardRace extends AbstractRace{
                 '}';
     }
 
+    //Data Management
     public JSONObject exportStandardRace() {
         JSONObject json = new JSONObject();
         json.put(StandardRace.NAME,this.getName());
@@ -101,13 +102,4 @@ public class StandardRace extends AbstractRace{
         Long duration = (Long) obj.get(StandardRace.DURATION);
         return new StandardRace(name, duration.intValue());
     }
-
-
-    public static void main(String[] args) {
-
-
-
-
-    }
-
 }
