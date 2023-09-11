@@ -98,6 +98,7 @@ public class Tournament {
         Top = top;
     }
 
+
     public List<StandardRace> aleatorizingStandardRaces(int number, List<StandardRace> allStandardRaces) {
 
         List<StandardRace> selectedRaces = new ArrayList<>();
@@ -131,6 +132,8 @@ public class Tournament {
 
         return selectedRaces;
     }
+
+
 
 
     //Data Management

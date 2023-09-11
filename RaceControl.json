@@ -1,1 +1,209 @@
-[[{"MODEL":"Galaxy","GARAGENAME":"Princess Land","BRAND":"Estela"},{"MODEL":"Kong","GARAGENAME":"Kong Racing","BRAND":"Donkey"},{"MODEL":"Koopa","GARAGENAME":"Koopa Troopa","BRAND":"Bowser"},{"MODEL":"Sunshine","GARAGENAME":"Princess Land","BRAND":"Daisy"},{"MODEL":"Bros","GARAGENAME":"The Bros","BRAND":"Mario"},{"MODEL":"Bros","GARAGENAME":"The Bros","BRAND":"Luigi"},{"MODEL":"Kong","GARAGENAME":"Kong Racing","BRAND":"Diddy"},{"MODEL":"Land","GARAGENAME":"Princess Land","BRAND":"Peach"},{"MODEL":"Land","GARAGENAME":"Princess Land","BRAND":"Toad"},{"MODEL":"Land","GARAGENAME":"","BRAND":"Yoshi"},{"MODEL":"Bros","GARAGENAME":"The Bros","BRAND":"Wario"},{"MODEL":"Bros","GARAGENAME":"The Bros","BRAND":"Waluigi"},{"MODEL":"Koopa","GARAGENAME":"Koopa Troopa","BRAND":"Shyguy"},{"MODEL":"Koopa","GARAGENAME":"Koopa Troopa","BRAND":"Woo"},{"MODEL":"Koopa","GARAGENAME":"Koopa Troopa","BRAND":"BillBullet"},{"MODEL":"Green","GARAGENAME":"Hyrule Sport","BRAND":"Link"},{"MODEL":"Princess","GARAGENAME":"Hyrule Sport","BRAND":"Zelda"},{"MODEL":"Goron","GARAGENAME":"Hyrule Sport","BRAND":"Darunia"},{"MODEL":"Goron","GARAGENAME":"Hyrule Sport","BRAND":"Yunobo"}],[{"NAME":"Koopa Troopa"},{"NAME":"Princess Land"},{"NAME":"The Bros"},{"NAME":"Kong Racing"},{"NAME":"Hyrule Sport"}],[{"Duration":3,"NAME":"Monza"},{"Duration":3,"NAME":"Imola"},{"Duration":3,"NAME":"Estadio Mario Kart"},{"Duration":3,"NAME":"Parque Acuático"},{"Duration":3,"NAME":"Barranco Goloso"},{"Duration":3,"NAME":"Ruinas Roca Picuda"},{"Duration":5,"NAME":"Circuito Mario"},{"Duration":6,"NAME":"Puerto Toad"},{"Duration":2,"NAME":"Mansión Retorcida"},{"Duration":3,"NAME":"Cataratas Shy Guy"}],[{"WarmUp":10,"EliminationInterval":1,"NAME":"Aeropuerto Soleado"},{"WarmUp":10,"EliminationInterval":1,"NAME":"Cala Delfín"},{"WarmUp":10,"EliminationInterval":1,"NAME":"Discoestadio"},{"WarmUp":10,"EliminationInterval":1,"NAME":"Cumbre Wario"},{"WarmUp":20,"EliminationInterval":3,"NAME":"Ruta Celeste"},{"WarmUp":10,"EliminationInterval":1,"NAME":"Dunas Huesitos"},{"WarmUp":50,"EliminationInterval":5,"NAME":"Castillo de Bowser"},{"WarmUp":15,"EliminationInterval":10,"NAME":"Senda Arco Iris"}],[]]
+[
+  [
+    {
+      "MODEL": "Galaxy",
+      "GARAGENAME": "Princess Land",
+      "BRAND": "Estela"
+    },
+    {
+      "MODEL": "Kong",
+      "GARAGENAME": "Kong Racing",
+      "BRAND": "Donkey"
+    },
+    {
+      "MODEL": "Koopa",
+      "GARAGENAME": "Koopa Troopa",
+      "BRAND": "Bowser"
+    },
+    {
+      "MODEL": "Sunshine",
+      "GARAGENAME": "Princess Land",
+      "BRAND": "Daisy"
+    },
+    {
+      "MODEL": "Bros",
+      "GARAGENAME": "The Bros",
+      "BRAND": "Mario"
+    },
+    {
+      "MODEL": "Bros",
+      "GARAGENAME": "The Bros",
+      "BRAND": "Luigi"
+    },
+    {
+      "MODEL": "Kong",
+      "GARAGENAME": "Kong Racing",
+      "BRAND": "Diddy"
+    },
+    {
+      "MODEL": "Land",
+      "GARAGENAME": "Princess Land",
+      "BRAND": "Peach"
+    },
+    {
+      "MODEL": "Land",
+      "GARAGENAME": "Princess Land",
+      "BRAND": "Toad"
+    },
+    {
+      "MODEL": "Land",
+      "GARAGENAME": "",
+      "BRAND": "Yoshi"
+    },
+    {
+      "MODEL": "Bros",
+      "GARAGENAME": "The Bros",
+      "BRAND": "Wario"
+    },
+    {
+      "MODEL": "Bros",
+      "GARAGENAME": "The Bros",
+      "BRAND": "Waluigi"
+    },
+    {
+      "MODEL": "Koopa",
+      "GARAGENAME": "Koopa Troopa",
+      "BRAND": "Shyguy"
+    },
+    {
+      "MODEL": "Koopa",
+      "GARAGENAME": "Koopa Troopa",
+      "BRAND": "Woo"
+    },
+    {
+      "MODEL": "Koopa",
+      "GARAGENAME": "Koopa Troopa",
+      "BRAND": "BillBullet"
+    },
+    {
+      "MODEL": "Green",
+      "GARAGENAME": "Hyrule Sport",
+      "BRAND": "Link"
+    },
+    {
+      "MODEL": "Princess",
+      "GARAGENAME": "Hyrule Sport",
+      "BRAND": "Zelda"
+    },
+    {
+      "MODEL": "Goron",
+      "GARAGENAME": "Hyrule Sport",
+      "BRAND": "Darunia"
+    },
+    {
+      "MODEL": "Goron",
+      "GARAGENAME": "Hyrule Sport",
+      "BRAND": "Yunobo"
+    }
+  ],
+  [
+    {
+      "NAME": "Koopa Troopa"
+    },
+    {
+      "NAME": "Princess Land"
+    },
+    {
+      "NAME": "The Bros"
+    },
+    {
+      "NAME": "Kong Racing"
+    },
+    {
+      "NAME": "Hyrule Sport"
+    }
+  ],
+  [
+    {
+      "Duration": 3,
+      "NAME": "Estadio Mario Kart"
+    },
+    {
+      "Duration": 3,
+      "NAME": "Parque Acuático"
+    },
+    {
+      "Duration": 3,
+      "NAME": "Barranco Goloso"
+    },
+    {
+      "Duration": 3,
+      "NAME": "Ruinas Roca Picuda"
+    },
+    {
+      "Duration": 6,
+      "NAME": "Aeropuerto Soleado"
+    },
+    {
+      "Duration": 8,
+      "NAME": "Cala Delfín"
+    },
+    {
+      "Duration": 4,
+      "NAME": "Discoestadio"
+    },
+    {
+      "Duration": 5,
+      "NAME": "Cumbre Wario"
+    }
+  ],
+  [
+    {
+      "WarmUp": 10,
+      "EliminationInterval": 1,
+      "NAME": "Circuito Mario"
+    },
+    {
+      "WarmUp": 10,
+      "EliminationInterval": 1,
+      "NAME": "Puerto Toad"
+    },
+    {
+      "WarmUp": 10,
+      "EliminationInterval": 1,
+      "NAME": "Mansión Retorcida"
+    },
+    {
+      "WarmUp": 10,
+      "EliminationInterval": 1,
+      "NAME": "Cataratas Shy Guy"
+    },
+    {
+      "WarmUp": 20,
+      "EliminationInterval": 2,
+      "NAME": "Ruta Celeste"
+    },
+    {
+      "WarmUp": 15,
+      "EliminationInterval": 3,
+      "NAME": "Dunas Huesitos"
+    },
+    {
+      "WarmUp": 30,
+      "EliminationInterval": 5,
+      "NAME": "Castillo de Bowser"
+    },
+    {
+      "WarmUp": 25,
+      "EliminationInterval": 4,
+      "NAME": "Senda Arcoiris"
+    }
+  ],
+  [
+    {
+      "Name": "Copa Champiñón"
+    },
+    {
+      "Name": "Copa Flor"
+    },
+    {
+      "Name": "Copa Estrella"
+    },
+    {
+      "Name": "Copa Caparazón"
+    },
+    {
+      "Name": "Copa Hoja"
+    }
+  ]
+]

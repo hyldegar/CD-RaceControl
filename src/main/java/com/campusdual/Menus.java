@@ -183,17 +183,19 @@ public class Menus {
 
             switch (opcion) {
                 case 1:
-                    String nameTournament = Input.string("Introduzca el nombre del Torneo");
+                    String nameTournament = Input.string("Introduzca el nombre del Torneo: ");
                     tournaments.add(Tournament.createStandarTournament(nameTournament, standardRaces, eliminationRaces));
                     break;
                 case 2:
-                    String nameTournamentP = Input.string("Introduzca el nombre del Torneo");
-                    int numberOfRaces = Input.integer("Cuantas carreras quiere añadir al Torneo?");
+                    String nameTournamentP = Input.string("Introduzca el nombre del Torneo: ");
+                    int numberOfRaces = Input.integer("Cuantas carreras quiere añadir al Torneo?: ");
                     tournaments.add(Tournament.createPersonalizedTournament(nameTournamentP, standardRaces, eliminationRaces, numberOfRaces));
                     // Todo elegir cantidad de carreras de un tipo u otro,
                     // Todo incluso podemos personalizar con un listado y elegir cuando meterlas(mucho trabajo queda por este lado)
                     break;
                 case 3:
+
+
                     //Todo Dar de baja los torneos
                     goback = true;
                     return;
@@ -209,7 +211,7 @@ public class Menus {
     public static void simulation() {
         boolean goback = false;
         while (!goback) {
-            System.out.println("\nMené de Simulacion de Carreras y Torneos:");
+            System.out.println("\nMenú de Simulacion de Carreras y Torneos:");
             System.out.println("1. Carrera Estándar");
             System.out.println("2. Carrera Eliminación");
             System.out.println("3. Torneo");
@@ -225,25 +227,25 @@ public class Menus {
                     standar.get(0).setParticipatingGarages(participatingGarages);
                     standar.get(0).startRace();
                     System.out.println("la carrera ha finalizado correctamente;");
-                    List<Car> podium =  standar.get(0).getPodium();
-                    for(Car car: podium){
+                    List<Car> podiumst =  standar.get(0).getPodium();
+                    for(Car car: podiumst){
                         System.out.println(car.toString());
                     }
 
                     break;
                 case 2:
                     List<EliminationRace> elim = Utils.showAndSelectFromList(eliminationRaces,true);
-                    List<Garage> participatingGarages = Utils.showAndSelectFromList(garages,true,true);
-                    standar.get(0).setParticipatingGarages(participatingGarages);
-                    standar.get(0).startRace();
+                    List<Garage> participGarages = Utils.showAndSelectFromList(garages,true,true);
+                    elim.get(0).setParticipatingGarages(participGarages);
+                    elim.get(0).startRace();
                     System.out.println("la carrera ha finalizado correctamente;");
-                    List<Car> podium =  standar.get(0).getPodium();
-                    for(Car car: podium){
+                    List<Car> podiumel =  elim.get(0).getPodium();
+                    for(Car car: podiumel){
                         System.out.println(car.toString());
                     }
                     break;
                 case 3:
-                    //Todo Dar de baja los torneos
+
                     goback = true;
                     return;
                 case 4:
@@ -357,6 +359,20 @@ public class Menus {
         Utils.showFromList(cars, true);
     }
 
+    public static void tournamentList(){
+        Utils.showFromList(tournaments,true);
+    }
+
+    public static void standardRaceList(){
+        Utils.showFromList(standardRaces,true);
+    }
+    public static void eliminationRacesList(){
+        Utils.showFromList(eliminationRaces,true);
+    }
+    public static void garagesList(){
+        Utils.showFromList(garages,true);
+    }
+
     public static void rechargeCarsInGarages() {
         for (Car car : cars) {
             for (Garage garage : garages) {
@@ -399,12 +415,52 @@ public class Menus {
                     simulation();
                     break;
                 case 5:
-                    carsList();
+                    lists();
                     break;
                 case 6:
                     saveState();
                     System.out.println("Saliendo del programa.");
                     System.exit(0);
+                default:
+                    System.out.println("Opción no válida. Por favor, seleccione una opción válida.");
+                    break;
+            }
+        }
+    }
+    public void lists() {
+
+        boolean goback = false;
+        while (!goback) {
+            System.out.println("\nMenú de Listados:");
+            System.out.println("1. Listado de Coches");
+            System.out.println("2. Listado de Escuderías");
+            System.out.println("3. Listado de Carreras Estándar");
+            System.out.println("4. Listado de Carreras de Eliminación");
+            System.out.println("5. Listado de Torneos");
+            System.out.println("6. Volver al menú principal");
+            System.out.print("Seleccione una opción: ");
+
+            int opcion = Input.integer();
+
+            switch (opcion) {
+                case 1:
+                    carsList();
+                    break;
+                case 2:
+                    garagesList();
+                    break;
+                case 3:
+                    standardRaceList();
+                    break;
+                case 4:
+                    eliminationRacesList();
+                    break;
+                case 5:
+                    tournamentList();
+                    break;
+                case 6:
+                    goback = true;
+                    return;
                 default:
                     System.out.println("Opción no válida. Por favor, seleccione una opción válida.");
                     break;

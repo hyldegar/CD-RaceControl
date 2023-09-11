@@ -46,13 +46,14 @@ public class EliminationRace extends AbstractRace {
 
         // Calentamiento (Warm-up)
         System.out.println("Comenzando el calentamiento...");
-        warmUp(participatingCars);
-
+        for(int i=0 ; i<this.warmUpDurationMinutes;i++) {
+            warmUp(participatingCars);
+        }
         System.out.println("Comienza la eliminatoria");
         int numberOfEliminations = participatingCars.size() - 4;
 
         for (int j = 0; j < numberOfEliminations; j++) {
-            warmUp(participatingCars); // Realizar calentamiento en cada intervalo
+            //warmUp(participatingCars); // Realizar calentamiento en cada intervalo
             eliminateCars(participatingCars, eliminatedCars);
         }
         participatingCars.sort(Collections.reverseOrder());
