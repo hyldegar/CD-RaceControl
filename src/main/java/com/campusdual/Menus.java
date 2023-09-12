@@ -26,6 +26,49 @@ public class Menus {
     private static List<EliminationRace> eliminationRaces = new ArrayList<>();
     private static List<Tournament> tournaments = new ArrayList<>();
 
+    public void ShowMainMenu() {
+
+        loadState();
+        rechargeCarsInGarages();
+        boolean goback = false;
+        while (!goback) {
+            System.out.println("\nMenú de Gestión Race Control:");
+            System.out.println("1. Gestionar Coches y Escuderias");
+            System.out.println("2. Gestionar Carreras");
+            System.out.println("3. Gestionar Torneos");
+            System.out.println("4. Simulacion");
+            System.out.println("5. Listados");
+            System.out.println("6. Guardar y salir");
+            System.out.print("Seleccione una opción: ");
+
+            int opcion = Input.integer();
+
+            switch (opcion) {
+                case 1:
+                    carAndGarageManagMenu();
+                    break;
+                case 2:
+                    raceManagementMenu();
+                    break;
+                case 3:
+                    tournamentManageMenu();
+                    break;
+                case 4:
+                    simulation();
+                    break;
+                case 5:
+                    lists();
+                    break;
+                case 6:
+                    saveState();
+                    System.out.println("Saliendo del programa.");
+                    System.exit(0);
+                default:
+                    System.out.println("Opción no válida. Por favor, seleccione una opción válida.");
+                    break;
+            }
+        }
+    }
     public static void carAndGarageManagMenu() {
         boolean goback = false;
         while (!goback) {
@@ -194,11 +237,23 @@ public class Menus {
                     // Todo incluso podemos personalizar con un listado y elegir cuando meterlas(mucho trabajo queda por este lado)
                     break;
                 case 3:
+                    // Dar de Baja Torneos
+                    if (!tournaments.isEmpty()) {
+                        System.out.println("Lista de Torneos Disponibles:");
+                        Utils.showFromList(tournaments, false);
 
+                        int tournamentIndex = Input.integer("Seleccione el índice del torneo que desea eliminar: ");
+                        if (tournamentIndex >= 0 && tournamentIndex <= tournaments.size()) {
+                            Tournament removedTournament = tournaments.remove(tournamentIndex-1);
+                            System.out.println("Torneo '" + removedTournament.getName() + "' ha sido eliminado.");
+                        } else {
+                            System.out.println("Índice no válido. No se eliminó ningún torneo.");
+                        }
+                    } else {
+                        System.out.println("No hay torneos disponibles para dar de baja.");
+                    }
+                    break;
 
-                    //Todo Dar de baja los torneos
-                    goback = true;
-                    return;
                 case 4:
                     goback = true;
                     return;
@@ -246,9 +301,55 @@ public class Menus {
                     break;
                 case 3:
 
+                    List<Tournament> tournament = Utils.showAndSelectFromList(tournaments,true);
+                    List<Garage> participatGarages = Utils.showAndSelectFromList(garages,true,true);
+                    tournament.get(0).setParticipatingGarages(participatGarages);
+
+                    tournament.get(0).tournamentStart();
+                    System.out.println("Torneo Finalizado Correctamente");
                     goback = true;
                     return;
                 case 4:
+                    goback = true;
+                    return;
+                default:
+                    System.out.println("Opción no válida. Por favor, seleccione una opción válida.");
+                    break;
+            }
+        }
+    }
+    public void lists() {
+
+        boolean goback = false;
+        while (!goback) {
+            System.out.println("\nMenú de Listados:");
+            System.out.println("1. Listado de Coches");
+            System.out.println("2. Listado de Escuderías");
+            System.out.println("3. Listado de Carreras Estándar");
+            System.out.println("4. Listado de Carreras de Eliminación");
+            System.out.println("5. Listado de Torneos");
+            System.out.println("6. Volver al menú principal");
+            System.out.print("Seleccione una opción: ");
+
+            int opcion = Input.integer();
+
+            switch (opcion) {
+                case 1:
+                    carsList();
+                    break;
+                case 2:
+                    garagesList();
+                    break;
+                case 3:
+                    standardRaceList();
+                    break;
+                case 4:
+                    eliminationRacesList();
+                    break;
+                case 5:
+                    tournamentList();
+                    break;
+                case 6:
                     goback = true;
                     return;
                 default:
@@ -277,11 +378,14 @@ public class Menus {
     }
 
     public static void saveState() {
+        // Limpiar las listas actuales antes de guardar los datos nuevos
         carsJSON.clear();
         garagesJSON.clear();
         standardRJSON.clear();
         eliminationRJSON.clear();
         tournamentsJSON.clear();
+
+        //Cargamos las listas JSON con los datos
         for (Car car : cars) {
             carsJSON.add(car.exportCar());
         }
@@ -383,89 +487,6 @@ public class Menus {
 
         }
     }
-
-    public void ShowMainMenu() {
-
-        loadState();
-        rechargeCarsInGarages();
-        boolean goback = false;
-        while (!goback) {
-            System.out.println("\nMenú de Gestión Race Control:");
-            System.out.println("1. Gestionar Coches y Escuderias");
-            System.out.println("2. Gestionar Carreras");
-            System.out.println("3. Gestionar Torneos");
-            System.out.println("4. Simulacion");
-            System.out.println("5. Listados");
-            System.out.println("6. Guardar y salir");
-            System.out.print("Seleccione una opción: ");
-
-            int opcion = Input.integer();
-
-            switch (opcion) {
-                case 1:
-                    carAndGarageManagMenu();
-                    break;
-                case 2:
-                    raceManagementMenu();
-                    break;
-                case 3:
-                    tournamentManageMenu();
-                    break;
-                case 4:
-                    simulation();
-                    break;
-                case 5:
-                    lists();
-                    break;
-                case 6:
-                    saveState();
-                    System.out.println("Saliendo del programa.");
-                    System.exit(0);
-                default:
-                    System.out.println("Opción no válida. Por favor, seleccione una opción válida.");
-                    break;
-            }
-        }
-    }
-    public void lists() {
-
-        boolean goback = false;
-        while (!goback) {
-            System.out.println("\nMenú de Listados:");
-            System.out.println("1. Listado de Coches");
-            System.out.println("2. Listado de Escuderías");
-            System.out.println("3. Listado de Carreras Estándar");
-            System.out.println("4. Listado de Carreras de Eliminación");
-            System.out.println("5. Listado de Torneos");
-            System.out.println("6. Volver al menú principal");
-            System.out.print("Seleccione una opción: ");
-
-            int opcion = Input.integer();
-
-            switch (opcion) {
-                case 1:
-                    carsList();
-                    break;
-                case 2:
-                    garagesList();
-                    break;
-                case 3:
-                    standardRaceList();
-                    break;
-                case 4:
-                    eliminationRacesList();
-                    break;
-                case 5:
-                    tournamentList();
-                    break;
-                case 6:
-                    goback = true;
-                    return;
-                default:
-                    System.out.println("Opción no válida. Por favor, seleccione una opción válida.");
-                    break;
-            }
-        }
-    }
+    
 
 }

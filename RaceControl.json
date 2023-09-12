@@ -191,18 +191,266 @@
   ],
   [
     {
+      "StandardRaces": [
+        {
+          "Duration": 3,
+          "NAME": "Ruinas Roca Picuda"
+        },
+        {
+          "Duration": 8,
+          "NAME": "Cala Delfín"
+        },
+        {
+          "Duration": 4,
+          "NAME": "Discoestadio"
+        },
+        {
+          "Duration": 5,
+          "NAME": "Cumbre Wario"
+        },
+        {
+          "Duration": 4,
+          "NAME": "Discoestadio"
+        }
+      ],
+      "EliminationRaces": [
+        {
+          "WarmUp": 10,
+          "EliminationInterval": 1,
+          "NAME": "Cataratas Shy Guy"
+        },
+        {
+          "WarmUp": 30,
+          "EliminationInterval": 5,
+          "NAME": "Castillo de Bowser"
+        },
+        {
+          "WarmUp": 25,
+          "EliminationInterval": 4,
+          "NAME": "Senda Arcoiris"
+        },
+        {
+          "WarmUp": 10,
+          "EliminationInterval": 1,
+          "NAME": "Cataratas Shy Guy"
+        },
+        {
+          "WarmUp": 10,
+          "EliminationInterval": 1,
+          "NAME": "Mansión Retorcida"
+        }
+      ],
       "Name": "Copa Champiñón"
     },
     {
+      "StandardRaces": [
+        {
+          "Duration": 3,
+          "NAME": "Ruinas Roca Picuda"
+        },
+        {
+          "Duration": 3,
+          "NAME": "Estadio Mario Kart"
+        },
+        {
+          "Duration": 3,
+          "NAME": "Ruinas Roca Picuda"
+        },
+        {
+          "Duration": 3,
+          "NAME": "Estadio Mario Kart"
+        },
+        {
+          "Duration": 5,
+          "NAME": "Cumbre Wario"
+        },
+        {
+          "Duration": 3,
+          "NAME": "Estadio Mario Kart"
+        },
+        {
+          "Duration": 6,
+          "NAME": "Aeropuerto Soleado"
+        },
+        {
+          "Duration": 6,
+          "NAME": "Aeropuerto Soleado"
+        }
+      ],
+      "EliminationRaces": [
+        {
+          "WarmUp": 10,
+          "EliminationInterval": 1,
+          "NAME": "Mansión Retorcida"
+        },
+        {
+          "WarmUp": 10,
+          "EliminationInterval": 1,
+          "NAME": "Cataratas Shy Guy"
+        },
+        {
+          "WarmUp": 10,
+          "EliminationInterval": 1,
+          "NAME": "Puerto Toad"
+        },
+        {
+          "WarmUp": 30,
+          "EliminationInterval": 5,
+          "NAME": "Castillo de Bowser"
+        },
+        {
+          "WarmUp": 20,
+          "EliminationInterval": 2,
+          "NAME": "Ruta Celeste"
+        },
+        {
+          "WarmUp": 10,
+          "EliminationInterval": 1,
+          "NAME": "Circuito Mario"
+        },
+        {
+          "WarmUp": 10,
+          "EliminationInterval": 1,
+          "NAME": "Mansión Retorcida"
+        }
+      ],
       "Name": "Copa Flor"
     },
     {
+      "StandardRaces": [
+        {
+          "Duration": 6,
+          "NAME": "Aeropuerto Soleado"
+        },
+        {
+          "Duration": 6,
+          "NAME": "Aeropuerto Soleado"
+        },
+        {
+          "Duration": 3,
+          "NAME": "Barranco Goloso"
+        },
+        {
+          "Duration": 3,
+          "NAME": "Barranco Goloso"
+        },
+        {
+          "Duration": 3,
+          "NAME": "Parque Acuático"
+        },
+        {
+          "Duration": 6,
+          "NAME": "Aeropuerto Soleado"
+        },
+        {
+          "Duration": 3,
+          "NAME": "Barranco Goloso"
+        },
+        {
+          "Duration": 3,
+          "NAME": "Estadio Mario Kart"
+        }
+      ],
+      "EliminationRaces": [
+        {
+          "WarmUp": 10,
+          "EliminationInterval": 1,
+          "NAME": "Puerto Toad"
+        },
+        {
+          "WarmUp": 10,
+          "EliminationInterval": 1,
+          "NAME": "Circuito Mario"
+        }
+      ],
       "Name": "Copa Estrella"
     },
     {
+      "StandardRaces": [
+        {
+          "Duration": 3,
+          "NAME": "Estadio Mario Kart"
+        },
+        {
+          "Duration": 3,
+          "NAME": "Estadio Mario Kart"
+        },
+        {
+          "Duration": 3,
+          "NAME": "Estadio Mario Kart"
+        },
+        {
+          "Duration": 5,
+          "NAME": "Cumbre Wario"
+        },
+        {
+          "Duration": 3,
+          "NAME": "Barranco Goloso"
+        },
+        {
+          "Duration": 3,
+          "NAME": "Ruinas Roca Picuda"
+        },
+        {
+          "Duration": 3,
+          "NAME": "Parque Acuático"
+        }
+      ],
+      "EliminationRaces": [],
       "Name": "Copa Caparazón"
     },
     {
+      "StandardRaces": [
+        {
+          "Duration": 3,
+          "NAME": "Parque Acuático"
+        },
+        {
+          "Duration": 3,
+          "NAME": "Parque Acuático"
+        },
+        {
+          "Duration": 4,
+          "NAME": "Discoestadio"
+        }
+      ],
+      "EliminationRaces": [
+        {
+          "WarmUp": 10,
+          "EliminationInterval": 1,
+          "NAME": "Puerto Toad"
+        },
+        {
+          "WarmUp": 10,
+          "EliminationInterval": 1,
+          "NAME": "Puerto Toad"
+        },
+        {
+          "WarmUp": 30,
+          "EliminationInterval": 5,
+          "NAME": "Castillo de Bowser"
+        },
+        {
+          "WarmUp": 10,
+          "EliminationInterval": 1,
+          "NAME": "Mansión Retorcida"
+        },
+        {
+          "WarmUp": 10,
+          "EliminationInterval": 1,
+          "NAME": "Mansión Retorcida"
+        },
+        {
+          "WarmUp": 25,
+          "EliminationInterval": 4,
+          "NAME": "Senda Arcoiris"
+        },
+        {
+          "WarmUp": 10,
+          "EliminationInterval": 1,
+          "NAME": "Circuito Mario"
+        }
+      ],
       "Name": "Copa Hoja"
     }
   ]
