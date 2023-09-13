@@ -4,6 +4,7 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class Tournament {
 
@@ -176,7 +177,8 @@ public class Tournament {
                 updateTop(car,score);
             }
         }
-        System.out.println(top);
+
+        highScore();
     }
 
     private void updateTop(Car carWinner, int points) {
@@ -185,6 +187,34 @@ public class Tournament {
 
             top.put(carWinner, currentPoints + points); // Actualiza los puntos del coche en el Top
 
+    }
+
+    public Map<Car, Integer> getTopSortedByScore() {
+        // Crear una lista de entradas (entries) a partir del mapa
+        List<Map.Entry<Car, Integer>> topList = new ArrayList<>(top.entrySet());
+
+        // Ordenar la lista de entradas en función de los valores (score) de manera descendente
+        topList.sort(Map.Entry.<Car, Integer>comparingByValue().reversed());
+
+        // Construir un nuevo mapa ordenado a partir de las entradas ordenadas
+        Map<Car, Integer> sortedTop = topList.stream()
+                .collect(Collectors.toMap(
+                        Map.Entry::getKey,
+                        Map.Entry::getValue,
+                        (e1, e2) -> e1, // Si hay duplicados, mantén el valor del primer elemento
+                        LinkedHashMap::new // Utiliza LinkedHashMap para mantener el orden de inserción
+                ));
+
+        return sortedTop;
+    }
+
+    public void highScore(){
+        Map<Car, Integer> sortedTop = this.getTopSortedByScore();
+
+        System.out.println("Top de Puntuaciones (ordenado por score):");
+        for (Map.Entry<Car, Integer> entry : sortedTop.entrySet()) {
+            System.out.println(entry.getKey().toString() + ": " + entry.getValue() + " puntos");
+        }
     }
 
 

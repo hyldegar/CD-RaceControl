@@ -52,6 +52,14 @@ public class Car implements Comparable<Car> {
 
     }
 
+    public void setSpeedometer(int speedometer) {
+        this.speedometer = speedometer;
+    }
+
+    public void setDistance(double distance) {
+        this.distance = distance;
+    }
+
     public int getSpeedometer() {
         return speedometer;
     }

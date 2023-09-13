@@ -59,6 +59,9 @@ public class EliminationRace extends AbstractRace {
         participatingCars.sort(Collections.reverseOrder());
         List<Car> podium = participatingCars.subList(0, Math.min(participatingCars.size(), 3));
         setPodium(podium);
+        for (Car car: participatingCars){
+            car.setSpeedometer(0);
+        }
     }
 
     private void warmUp(List<Car> cars) {

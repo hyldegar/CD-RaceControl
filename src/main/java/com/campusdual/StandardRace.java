@@ -68,6 +68,9 @@ public class StandardRace extends AbstractRace{
             List<Car> podium = participatingCars.subList(0, Math.min(participatingCars.size(), 3));
             setPodium(podium);
         }
+        for (Car car: participatingCars){
+            car.setSpeedometer(0);
+        }
     }
 
 

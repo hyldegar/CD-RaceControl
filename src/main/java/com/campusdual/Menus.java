@@ -26,13 +26,16 @@ public class Menus {
     private static List<EliminationRace> eliminationRaces = new ArrayList<>();
     private static List<Tournament> tournaments = new ArrayList<>();
 
+    /*******************************************MENUS**************************************************************/
     public void ShowMainMenu() {
 
         loadState();
         rechargeCarsInGarages();
         boolean goback = false;
         while (!goback) {
-            System.out.println("\nMenú de Gestión Race Control:");
+            System.out.println("\n==================================");
+            System.out.println("   Menú de Gestión Race Control");
+            System.out.println("==================================");
             System.out.println("1. Gestionar Coches y Escuderias");
             System.out.println("2. Gestionar Carreras");
             System.out.println("3. Gestionar Torneos");
@@ -72,7 +75,9 @@ public class Menus {
     public static void carAndGarageManagMenu() {
         boolean goback = false;
         while (!goback) {
-            System.out.println("\nMenú de Gestión de Coches y Grarajes:");
+            System.out.println("\n==================================");
+            System.out.println("Menú de Gestión de Coches y Grarajes:");
+            System.out.println("==================================");
             System.out.println("1. Dar de Alta Coches");
             System.out.println("2. Dar de Alta Escuderias");
             System.out.println("3. Asignar Coches a Escuderias o cambiarlos de Escuderia");
@@ -91,63 +96,14 @@ public class Menus {
                     garages.add(new Garage());
                     break;
                 case 3:
-                    List<Garage> selectedGarages = Utils.showAndSelectFromList(garages, true);
-                    List<Car> selectedCars = Utils.showAndSelectFromList(cars, true);
-
-                    if (!selectedGarages.isEmpty() || !selectedCars.isEmpty()) {
-                        Garage selectedGarage = selectedGarages.get(0);
-                        Car selectedCar = selectedCars.get(0);
-
-                        if (!selectedCar.getGarageName().isEmpty()) {
-                            char selection = Input.character("Está seguro de cambiar el coche de Escudería?(Y/Any)");
-                            if (selection == 'Y' || selection == 'y') {
-                                selectedGarage.addCar(selectedCar);
-                                selectedCar.setGarageName(selectedGarage.getName());
-                                break;
-                            } else {
-                                break;
-                            }
-                        }
-                        selectedGarage.addCar(selectedCar);
-                        selectedCar.setGarageName(selectedGarage.getName());
-                    } else {
-                        System.out.println("No se seleccionaron coches o garajes disponibles.");
-                    }
+                    assignCarsToGarages();
                     break;
                 case 4:
-                    List<Car> selectedCarsToRemove = Utils.showAndSelectFromList(cars, true);
-
-                    if (!selectedCarsToRemove.isEmpty()) {
-                        Car selectedCarToRemove = selectedCarsToRemove.get(0);
-                        cars.remove(selectedCarToRemove);
-
-                        for (Garage garage : garages) {
-                            List<Car> garageCars = garage.getCars();
-                            if (garageCars.contains(selectedCarToRemove)) {
-                                garageCars.remove(selectedCarToRemove);
-                                System.out.println("Coche eliminado del Escudería");
-                                break;
-                            }
-                        }
-
-                        System.out.println("Coche dado de baja correctamente");
-                    } else {
-                        System.out.println("No se seleccionó ningún coche para dar de baja.");
-                    }
+                    removecars();
                     break;
 
                 case 5:
-                    List<Garage> selectedGaragesToRemove = Utils.showAndSelectFromList(garages, true);
-                    if (!selectedGaragesToRemove.isEmpty()) {
-                        Garage selectedGarageToRemove = selectedGaragesToRemove.get(0);
-                        for (Car car : selectedGarageToRemove.getCars()) {
-                            car.setGarageName("");
-                        }
-                        garages.remove(selectedGarageToRemove);
-                        System.out.println("Escuderia Eliminada");
-                    } else {
-                        System.out.println("No se seleccionó ninguna escudería para dar de baja.");
-                    }
+                    removeGarages();
                     break;
                 case 6:
                     goback = true;
@@ -162,7 +118,9 @@ public class Menus {
     public static void raceManagementMenu() {
         boolean goback = false;
         while (!goback) {
-            System.out.println("\nMenú de Gestión de Carreras:");
+            System.out.println("==================================");
+            System.out.println("   Menú de Gestión de Carreras:");
+            System.out.println("==================================");
             System.out.println("1. Dar de Alta Carreras Standar");
             System.out.println("2. Dar de Alta Carreras de Eliminación");
             System.out.println("3. Dar de Baja Carreras Estandar");
@@ -182,6 +140,7 @@ public class Menus {
                     } else {
                         standardRaces.add(new StandardRace());
                     }
+                    //todo en el enunciado se contempla que las carreras tengan asignadas escuderías....
                     break;
                 case 2:
                     char select = Input.character("Desea Personalizar la carrera? (y/n:other)");
@@ -215,7 +174,9 @@ public class Menus {
     public static void tournamentManageMenu() {
         boolean goback = false;
         while (!goback) {
-            System.out.println("\nMenú de Gestión de Torneos:");
+            System.out.println("==================================");
+            System.out.println("   Menú de Gestión de Torneos:");
+            System.out.println("==================================");
             System.out.println("1. Torneo Estándar");
             System.out.println("2. Torneo Personalizado");
             System.out.println("3. Eliminar Torneo");
@@ -237,7 +198,7 @@ public class Menus {
                     // Todo incluso podemos personalizar con un listado y elegir cuando meterlas(mucho trabajo queda por este lado)
                     break;
                 case 3:
-                    // Dar de Baja Torneos
+
                     if (!tournaments.isEmpty()) {
                         System.out.println("Lista de Torneos Disponibles:");
                         Utils.showFromList(tournaments, false);
@@ -266,7 +227,9 @@ public class Menus {
     public static void simulation() {
         boolean goback = false;
         while (!goback) {
-            System.out.println("\nMenú de Simulacion de Carreras y Torneos:");
+            System.out.println("\n========================================");
+            System.out.println("Menú de Simulacion de Carreras y Torneos:");
+            System.out.println("=========================================");
             System.out.println("1. Carrera Estándar");
             System.out.println("2. Carrera Eliminación");
             System.out.println("3. Torneo");
@@ -304,8 +267,8 @@ public class Menus {
                     List<Tournament> tournament = Utils.showAndSelectFromList(tournaments,true);
                     List<Garage> participatGarages = Utils.showAndSelectFromList(garages,true,true);
                     tournament.get(0).setParticipatingGarages(participatGarages);
-
                     tournament.get(0).tournamentStart();
+                    //todo todavia no se muestra bien el high score...
                     System.out.println("Torneo Finalizado Correctamente");
                     goback = true;
                     return;
@@ -322,7 +285,9 @@ public class Menus {
 
         boolean goback = false;
         while (!goback) {
-            System.out.println("\nMenú de Listados:");
+            System.out.println("==================================");
+            System.out.println("     Menú de Listados:");
+            System.out.println("==================================");
             System.out.println("1. Listado de Coches");
             System.out.println("2. Listado de Escuderías");
             System.out.println("3. Listado de Carreras Estándar");
@@ -359,7 +324,8 @@ public class Menus {
         }
     }
 
-    //Data Management
+    /*********************************Final Menús ***************************************/
+    /*********************************Data Management**********************************/
     public static void exportJSONToFile(JSONArray obj) {
         try (FileWriter w = new FileWriter("RaceControl.json")) {
             w.write(obj.toJSONString());
@@ -459,6 +425,9 @@ public class Menus {
         }
     }
 
+    /******************************************END DATA MANAGEMENT*************************************/
+
+    //todo mejorar la visualización de los listados
     public static void carsList() {
         Utils.showFromList(cars, true);
     }
@@ -487,6 +456,67 @@ public class Menus {
 
         }
     }
-    
+
+    public static void assignCarsToGarages() {
+        List<Garage> selectedGarages = Utils.showAndSelectFromList(garages, true);
+        List<Car> selectedCars = Utils.showAndSelectFromList(cars, true);
+
+        if (!selectedGarages.isEmpty() || !selectedCars.isEmpty()) {
+            Garage selectedGarage = selectedGarages.get(0);
+            Car selectedCar = selectedCars.get(0);
+
+            if (!selectedCar.getGarageName().isEmpty()) {
+                char selection = Input.character("¿Está seguro de cambiar el coche de Escudería? (Y/Any)");
+                if (selection == 'Y' || selection == 'y') {
+                    selectedGarage.addCar(selectedCar);
+                    selectedCar.setGarageName(selectedGarage.getName());
+                    return;
+                }
+            }
+
+            selectedGarage.addCar(selectedCar);
+            selectedCar.setGarageName(selectedGarage.getName());
+
+        } else {
+            System.out.println("No se seleccionaron coches o garajes disponibles.");
+
+        }
+    }
+
+    public static void removecars(){
+        List<Car> selectedCarsToRemove = Utils.showAndSelectFromList(cars, true);
+
+        if (!selectedCarsToRemove.isEmpty()) {
+            Car selectedCarToRemove = selectedCarsToRemove.get(0);
+            cars.remove(selectedCarToRemove);
+
+            for (Garage garage : garages) {
+                List<Car> garageCars = garage.getCars();
+                if (garageCars.contains(selectedCarToRemove)) {
+                    garageCars.remove(selectedCarToRemove);
+                    System.out.println("Coche eliminado del Escudería");
+                    break;
+                }
+            }
+
+            System.out.println("Coche dado de baja correctamente");
+        } else {
+            System.out.println("No se seleccionó ningún coche para dar de baja.");
+        }
+    }
+    public static void removeGarages(){
+        List<Garage> selectedGaragesToRemove = Utils.showAndSelectFromList(garages, true);
+        if (!selectedGaragesToRemove.isEmpty()) {
+            Garage selectedGarageToRemove = selectedGaragesToRemove.get(0);
+            for (Car car : selectedGarageToRemove.getCars()) {
+                car.setGarageName("");
+            }
+            garages.remove(selectedGarageToRemove);
+            System.out.println("Escuderia Eliminada");
+        } else {
+            System.out.println("No se seleccionó ninguna escudería para dar de baja.");
+        }
+
+    }
 
 }
